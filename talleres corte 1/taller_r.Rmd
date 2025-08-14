@@ -1,0 +1,211 @@
+---
+title: "Aplicacion de conceptos de R"
+author: "Monica Lopez"
+date: "2025-07-24"
+output: pdf_document
+---
+
+```{r, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(readxl)
+base_concesionario <- read_excel("C:/Users/monic/OneDrive/PC/Documents/Files R/base_concesionario.xlsx")
+```
+
+
+# Contexto
+
+Un concesionario desea perfilar a sus clientes con el fin de mejorar sus estrategias en ventas. Para ello, ha creado una tabla que contiene información sobre aspectos socieconómicos de sus clientes.   
+El Objetivo de esta actividad consiste en practicar el uso de herramientas del lenguaje de programación R para analizar la base de datos denominada *base_concesionario*, y generar un informe que de cuenta de los hallazgos, metodologías y exploración de los datos.
+
+# Actividades
+
+##  Análisis exploratorio de la base de datos
+
+a. Cargar la base de datos denominada *base_concesionario*. 
+
+```{r, echo = FALSE}
+base_concesionario <- read_excel("C:/Users/monic/OneDrive/PC/Documents/Files R/base_concesionario.xlsx")
+head(base_concesionario)
+```
+
+
+b. Realizar una exploración de la base de tal manera que se pueda definir cuántos clientes están registrados, qué variables están asociadas a los clientes.  
+
+```{r, echo = FALSE}
+summary(base_concesionario)
+```
+
+c. Identificar y contar los datos faltantes que se tengan en la base de datos. 
+
+```{r, echo = FALSE}
+base_concesionario <- base_concesionario %>%
+  filter(!if_all(everything(), is.na))
+nrow(base_concesionario)
+sum(is.na(base_concesionario))
+colSums(is.na(base_concesionario))
+```
+
+d. Utilizar y aplicar estrategias que permitan identificar registros incompletos, valores inconsistentes y otras características que podrían afectar el análisis de los datos de la base.
+
+  ** Se transforman los valores faltantes a valores desconocidos para mejor analisis.
+  ** Para valores inconsistentes se utiliza la media o moda (depende del tipo de variable) para     remplazar estos valores.
+  ** Se transforman las variables que estan escritas diferentes que se vera en siguientes puntos.
+
+```{r, echo = FALSE}
+base_concesionario <- base_concesionario %>%
+  mutate(SEXO = ifelse(SEXO == "", NA, SEXO))
+
+```
+
+##  Análisis de la variable "marca de auto"
+a. Evaluar la variable "Marca de auto" y determinar si hay datos faltantes, en caso de que los haya, se requiere proponer una metodología que permita tratar con este tipo de datos.
+
+  ** Se transforma los valores con errores de escritura para que coincidan con las categorias       principales.
+
+```{r, echo = FALSE}
+base_concesionario <- base_concesionario %>%
+  mutate(`MARCA DE AUTO`= case_when(
+    `MARCA DE AUTO`== "FOR" ~ "FORD",
+    `MARCA DE AUTO`== "BWM" ~ "BMW",
+    `MARCA DE AUTO`== "renault" ~ "RENAULT",
+    `MARCA DE AUTO`== "Desconocido" ~ "NA",
+    TRUE ~ `MARCA DE AUTO`
+  ))
+
+moda_marca <- base_concesionario %>%
+  filter(!is.na(`MARCA DE AUTO`)) %>%
+  count(`MARCA DE AUTO`) %>%
+  arrange(desc(n)) %>%
+  slice(1) %>%
+  pull(`MARCA DE AUTO`)
+moda_marca
+```
+
+b. Crear una tabla de frecuencias que permita determinar la preferencia en marcas de autos de los clientes. 
+
+```{r, echo = FALSE}
+tabla_frecuencias <- base_concesionario %>%
+  count(`MARCA DE AUTO`, name = "Frecuencia") %>%
+  mutate(
+    Porcentaje = round(Frecuencia / sum(Frecuencia) * 100, 2),
+    Etiqueta = paste0(`MARCA DE AUTO`, ": ", round(Porcentaje * 100, 1), "%") %>%
+  arrange(desc(Frecuencia)))
+tabla_frecuencias
+```
+
+d. Haciendo uso de la librería *ggplot2* de R, generar un gráfico de barras y de sectores que permita visualizar la distribución de las marcas de autos entre los clientes. 
+
+```{r, echo = FALSE}
+#GRAFICO DE BARRAS
+ggplot(tabla_frecuencias, aes(x = reorder(`MARCA DE AUTO`, -Frecuencia), y = Frecuencia)) +
+  geom_bar(stat = "identity", fill = "darkgreen") +
+  labs(
+    title = "Preferencia de Marcas de Autos",
+    x = "Marca",
+    y = "Número de Clientes"
+  ) +
+  theme_minimal()
+# GRAFICO DE SECTORES
+
+tabla_marca <- base_concesionario %>%
+  filter(!is.na(`MARCA DE AUTO`)) %>%
+  count(`MARCA DE AUTO`, name = "Frecuencia") %>%
+  mutate(
+    Porcentaje = Frecuencia / sum(Frecuencia),
+    Etiqueta = paste0(`MARCA DE AUTO`, ": ", round(Porcentaje * 100, 1), "%")
+  )
+ggplot(tabla_marca, aes(x = "", y = Porcentaje, fill = `MARCA DE AUTO`)) +
+  geom_col(width = 1, color = "white") +
+  coord_polar(theta = "y") +
+  geom_text(aes(label = Etiqueta), position = position_stack(vjust = 0.5)) +
+  labs(title = "Distribución de clientes por Marca de Auto") +
+  theme_void()
+```
+
+e. Proporcionar una conclusión a partir de la información que se haya extraído en el desarrollo de los numerales anteriores.
+
+  ** La marca de auto mas popular es Audi y Renault con 21.67% de los encuestados conducen esta     marca
+  ** 5% de los encuestados conducen un auto de marca desconocida.
+
+##  Análisis de la variable edad
+
+a. Verificar si la variable edad está correctamente definida como tipo *numérico*.
+
+```{r, echo = FALSE}
+str(base_concesionario$EDAD)
+
+```
+
+b. Identificar algún tipo de anomalía en la variable y si es el caso corregirla.
+
+```{r, echo = FALSE}
+#Transformar EDAD
+base_concesionario <- base_concesionario %>%
+  mutate(`EDAD` = as.numeric(`EDAD`))
+#Sacar la media y la varianza de EDAD
+base_concesionario %>%
+  summarise(media_edad = mean(`EDAD`, na.rm = TRUE))
+base_concesionario %>%
+  summarise(var_edad = var(`EDAD`, na.rm = TRUE))
+# Cambiar datos atipicos por la media
+base_concesionario <- base_concesionario %>%
+  mutate(`EDAD`= case_when(
+    `EDAD`== 10 ~ 44,
+    TRUE ~ `EDAD`
+  ))
+summary(base_concesionario$EDAD)
+```
+
+c. Haciendo uso de la librería *ggplot2* de R, realizar un histogramas de la variable edad y describir características de distribución de la variable.
+
+```{r, echo = FALSE}
+ggplot(base_concesionario, aes(x = `EDAD`)) +
+  geom_histogram(binwidth = 5, fill = "orange", color = "black") +
+  labs(
+    title = "Histograma de la edad de los clientes",
+    x = "Edad",
+    y = "Frecuencia"
+  ) +
+  theme_minimal()
+```
+
+##  Análisis de la variable sexo  
+a. Revisar la consistencia de la variable "SEXO" y realizar correcciones en caso de encontrar valores inusuales o inconsistentes.
+
+```{r, echo = FALSE}
+unique(base_concesionario$`SEXO`)
+
+#Transforman SEXO
+base_concesionario <- base_concesionario %>%
+  mutate(SEXO = tolower(`SEXO`))
+base_concesionario <- base_concesionario %>%
+  mutate(
+    `SEXO` = case_when(
+    `SEXO` %in% c("f", "mujer") ~ "F",
+    `SEXO` %in% c("m", "hombre") ~ "M",
+      TRUE ~ `SEXO`
+    ))
+unique(base_concesionario$SEXO)
+```
+
+b. Crear una tabla de frecuencias y extraer conclusiones sobre la proporción de hombres y de mujeres en el conjunto de clientes.
+
+```{r, echo = FALSE}
+tabla_sexo <- base_concesionario %>%
+  filter(!is.na(`SEXO`)) %>% 
+  count(`SEXO`, name = "Frecuencia") %>%
+  mutate(Porcentaje = round(Frecuencia / sum(Frecuencia) * 100, 2))
+tabla_sexo
+```
+
+# Entrega de la actividad.
+Los resultados de esta actividad se deben enviar al correo **atrillerasm@unbosque.edu.co** en la fecha definida para la entrega de talleres del corte I.
+
+EDITAR TABLA DE FRECUENCIAS
+AVERIGUAR COMO PONER ETIQUETA
+CAMBIAR DATOS FALTANTES
+
+
+
+
