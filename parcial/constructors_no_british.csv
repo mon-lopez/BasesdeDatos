@@ -1,0 +1,127 @@
+name,nationality,constructorRef,,,
+BMW Sauber,German,bmw_sauber,,,
+Renault,French,renault,,,
+Toro Rosso,Italian,toro_rosso,,Row Labels,Count of constructorRef
+Ferrari,Italian,ferrari,,American,39
+Toyota,Japanese,toyota,,Australian,1
+Super Aguri,Japanese,super_aguri,,Austrian,1
+Red Bull,Austrian,red_bull,,Belgian,1
+Force India,Indian,force_india,,Brazilian,1
+Honda,Japanese,honda,,Canadian,2
+Spyker,Dutch,spyker,,Dutch,3
+MF1,Russian,mf1,,East German,1
+Spyker MF1,Dutch,spyker_mf1,,French,13
+Sauber,Swiss,sauber,,German,10
+Jordan,Irish,jordan,,Hong Kong,1
+Minardi,Italian,minardi,,Indian,1
+Prost,French,prost,,Irish,1
+Benetton,Italian,benetton,,Italian,30
+Ligier,French,ligier,,Japanese,5
+Forti,Italian,forti,,Malaysian,2
+Larrousse,French,larrousse,,Mexican,1
+Dallara,Italian,dallara,,New Zealander,1
+Fondmetal,Italian,fondmetal,,Rhodesian,1
+Andrea Moda,Italian,moda,,Russian,2
+AGS,French,ags,,South African,3
+Lambo,Italian,lambo,,Spanish,1
+Coloni,Italian,coloni,,Swiss,5
+Euro Brun,Italian,eurobrun,,Grand Total,126
+Osella,Italian,osella,,,
+Life,Italian,life,,,
+Rial,German,rial,,,
+Zakspeed,German,zakspeed,,,
+Alfa Romeo,Swiss,alfa,,,
+ATS,Italian,ats,,,
+Theodore,Hong Kong,theodore,,,
+Fittipaldi,Brazilian,fittipaldi,,,
+Wolf,Canadian,wolf,,,
+Merzario,Italian,merzario,,,
+Kauhsen,German,kauhsen,,,
+Rebaque,Mexican,rebaque,,,
+Martini,French,martini,,,
+Penske,American,penske,,,
+McGuire,Australian,mcguire,,,
+Boro,Dutch,boro,,,
+Apollon,Swiss,apollon,,,
+Kojima,Japanese,kojima,,,
+Parnelli,American,parnelli,,,
+Maki,Japanese,maki,,,
+Amon,New Zealander,amon,,,
+Tecno,Italian,tecno,,,
+Matra,French,matra,,,
+Bellasi,Swiss,bellasi,,,
+De Tomaso,Italian,tomaso,,,
+Eagle,American,eagle,,,
+LDS,South African,lds,,,
+RE,Rhodesian,re,,,
+Porsche,German,porsche,,,
+Stebro,Canadian,stebro,,,
+ENB,Belgian,enb,,,
+MBM,Swiss,mbm,,,
+Behra-Porsche,Italian,behra-porsche,,,
+Maserati,Italian,maserati,,,
+Scarab,American,scarab,,,
+Watson,American,watson,,,
+Epperly,American,epperly,,,
+Phillips,American,phillips,,,
+Lesovsky,American,lesovsky,,,
+Trevis,American,trevis,,,
+Meskowski,American,meskowski,,,
+Kurtis Kraft,American,kurtis_kraft,,,
+Kuzma,American,kuzma,,,
+Christensen,American,vhristensen,,,
+Ewing,American,ewing,,,
+Moore,American,moore,,,
+Dunn,American,dunn,,,
+Elder,American,elder,,,
+Sutton,American,sutton,,,
+Tec-Mec,Italian,tec-mec,,,
+OSCA,Italian,osca,,,
+Gordini,French,gordini,,,
+Stevens,American,stevens,,,
+Bugatti,French,bugatti,,,
+Mercedes,German,mercedes,,,
+Lancia,Italian,lancia,,,
+Schroeder,American,schroeder,,,
+Pawl,American,pawl,,,
+Pankratz,American,pankratz,,,
+Arzani-Volpini,Italian,arzani-volpini,,,
+Nichels,American,nichels,,,
+Bromme,American,bromme,,,
+Klenk,German,klenk,,,
+Simca,French,simca,,,
+Turner,American,turner,,,
+Del Roy,American,del_roy,,,
+Veritas,German,veritas,,,
+BMW,German,bmw,,,
+EMW,East German,emw,,,
+AFM,German,afm,,,
+Sherman,American,sherman,,,
+Deidt,American,deidt,,,
+Cisitalia,Italian,cisitalia,,,
+Talbot-Lago,French,lago,,,
+Hall,American,hall,,,
+Marchese,American,marchese,,,
+Langley,American,langley,,,
+Rae,American,rae,,,
+Olson,American,olson,,,
+Wetteroth,American,wetteroth,,,
+Adams,American,adams,,,
+Snowberger,American,snowberger,,,
+Milano,Italian,milano,,,
+HRT,Spanish,hrt,,,
+De Tomaso-Osca,Italian,de_tomaso-osca,,,
+De Tomaso-Alfa Romeo,Italian,de_tomaso-alfa_romeo,,,
+De Tomaso-Ferrari,Italian,de_tomaso-ferrari,,,
+LDS-Climax,South African,lds-climax,,,
+LDS-Alfa Romeo,South African,lds-alfa_romeo,,,
+Eagle-Climax,American,eagle-climax,,,
+Eagle-Weslake,American,eagle-weslake,,,
+Matra-Ford,French,matra-ford,,,
+Lotus,Malaysian,lotus_racing,,,
+Marussia,Russian,marussia,,,
+Caterham,Malaysian,caterham,,,
+Haas F1 Team,American,haas,,,
+AlphaTauri,Italian,alphatauri,,,
+Alpine F1 Team,French,alpine,,,
+RB F1 Team,Italian,rb,,,

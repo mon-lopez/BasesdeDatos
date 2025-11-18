@@ -1,0 +1,37 @@
+forename,surname,nationality,total_victorias,,,
+Lewis,Hamilton,British,1043,,,
+Michael,Schumacher,German,844,,Row Labels,Sum of total_victorias
+Sebastian,Vettel,German,517,,Alboreto,44
+Alain,Prost,French,472,,Alesi,12
+Ayrton,Senna,Brazilian,394,,Alonso,346
+Fernando,Alonso,Spanish,346,,Barrichello,52
+Nico,Rosberg,German,269,,Berger,43
+Nigel,Mansell,British,258,,Boutsen,19
+Kimi,RÃ¤ikkÃ¶nen,Finnish,187,,Button,180
+Jenson,Button,British,180,,Coulthard,142
+Damon,Hill,British,178,,Fisichella,50
+Nelson,Piquet,Brazilian,178,,Frentzen,28
+Mika,HÃ¤kkinen,Finnish,157,,HÃ¤kkinen,157
+David,Coulthard,British,142,,Hamilton,1043
+Felipe,Massa,Brazilian,96,,Herbert,19
+Jacques,Villeneuve,Canadian,93,,Hill,178
+Mark,Webber,Australian,86,,Irvine,33
+Ralf,Schumacher,German,61,,Kovalainen,8
+Rubens,Barrichello,Brazilian,52,,Kubica,12
+Giancarlo,Fisichella,Italian,50,,Mansell,258
+Michele,Alboreto,Italian,44,,Massa,96
+Gerhard,Berger,Austrian,43,,Nannini,2
+Riccardo,Patrese,Italian,43,,Pablo Montoya,36
+Juan,Pablo Montoya,Colombian,36,,Panis,11
+Eddie,Irvine,British,33,,Patrese,43
+Heinz-Harald,Frentzen,German,28,,Piquet,178
+Johnny,Herbert,British,19,,Prost,472
+Thierry,Boutsen,Belgian,19,,RÃ¤ikkÃ¶nen,187
+Jarno,Trulli,Italian,13,,Rosberg,269
+Jean,Alesi,French,12,,Schumacher,905
+Robert,Kubica,Polish,12,,Senna,394
+Olivier,Panis,French,11,,Trulli,13
+Heikki,Kovalainen,Finnish,8,,Vettel,517
+Alessandro,Nannini,Italian,2,,Villeneuve,93
+,,,,,Webber,86
+,,,,,Grand Total,5926
